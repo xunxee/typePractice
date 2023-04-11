@@ -13,3 +13,13 @@ const number2 = 2.8;
 const printResult = true;
 
 add(number1, number2, printResult);
+
+const person: {
+  name: string;
+  age: number;
+} = {
+  name: 'Maximilian',
+  age: 30,
+};
+
+console.log(person.name);
