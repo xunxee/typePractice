@@ -14,12 +14,15 @@ const printResult = true;
 
 add(number1, number2, printResult);
 
-const person: {
-  name: string;
-  age: number;
-} = {
+const person = {
   name: 'Maximilian',
   age: 30,
+  hobbies: ['Sports', 'Cooking'],
 };
 
-console.log(person.name);
+let favoriteActivities: string[];
+favoriteActivities = ['Sports'];
+
+for (const hobby of person.hobbies) {
+  console.log(hobby);
+}
