@@ -1,35 +1,28 @@
-function add(n1: number, n2: number, showResult: boolean) {
-  if (showResult) {
-    console.log(n1 + n2);
+function combine(
+  input1: number | string,
+  input2: number | string,
+  resultConversion: 'as-number' | 'as-text',
+) {
+	if (typeof input1 === 'number' 
+    && typeof input2 === 'number'
+    || resultConversion === 'as-number'
+    ) {
+		return +input1 + +input2;
+	}
 
-    return;
-  }
-
-  return n1 + n2;
+	if (typeof input1 === 'string' 
+    && typeof input2 === 'string'
+    || resultConversion === 'as-text'
+    ) {
+		return input1.toString() + +input2.toString();
+	}
 }
 
-const number1 = 5;
-const number2 = 2.8;
-const printResult = true;
+const combinedAges = combine(30, 26, 'as-number');
+console.log(combinedAges); // 56
 
-add(number1, number2, printResult);
+const combinedStringAges = combine('30', '26', 'as-number');
+console.log(combinedStringAges); // '3026'
 
-enum Role { ADMIN, READ_ONLY, AUTHOR };
-
-const person = {
-	name: 'Maximilian',
-  age: 30,
-  hobbies: ['Sports', 'Cooking'],
-  role: Role.ADMIN,
-};
-
-let favoriteActivities: string[];
-favoriteActivities = ['Sports'];
-
-for (const hobby of person.hobbies) {
-  console.log(hobby);
-}
-
-if (person.role === Role.ADMIN) {
-  console.log('same!');
-}
+const combinedNames = combine('Max', 'Anna', 'as-text');
+console.log(combinedNames); // MaxAnna
